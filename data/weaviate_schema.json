@@ -1,0 +1,18 @@
+{
+  "class": "Article",
+  "vectorizer": "none",
+  "properties": [
+    {
+      "dataType": ["int"],
+      "description": "Unique Chunk Id for the object",
+      "indexInverted": true,
+      "name": "source_id"
+    },
+    {
+      "dataType": ["text"],
+      "description": "Text content of the object",
+      "indexInverted": true,
+      "name": "text"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+---
+version: '3.4'
+services:
+  weaviate:
+    image: semitechnologies/weaviate:1.21.7
+    ports:
+    - 8080:80
+    volumes:
+    - F:/Github/Retrieval_Augmented_QA/data/weaviate_data:/var/lib/weaviate
+    restart: on-failure:0
+    environment:
+      QUERY_DEFAULTS_LIMIT: 25
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'
+      PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
+      DEFAULT_VECTORIZER_MODULE: 'none'
+      CLUSTER_HOSTNAME: 'node1'
+  embedding-generator:
+    build:
+      context: ./embedding_generator
+    ports:
+    - 8081:80
+    volumes:
+    - F:/Github/Retrieval_Augmented_QA/data:/app/data
+    restart: on-failure:0
+    environment:
+      WEAVIATE_URL: 'http://weaviate:8080'
+  qa-service:
+    build:
+      context: ./qa_service
+    ports:
+    - 8082:80
+    volumes:
+    - F:/Github/Retrieval_Augmented_QA/data:/app/data
+    restart: on-failure:0
+    environment:
+      WEAVIATE_URL: 'http://weaviate:8080'
+...

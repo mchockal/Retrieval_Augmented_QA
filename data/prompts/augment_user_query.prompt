@@ -1,0 +1,8 @@
+Given the following context,
+
+{context}
+
+answer this question -  {user_query}
+
+If you do not know the answer, please say so.
+Keep your answers to three lines maximum.
