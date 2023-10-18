@@ -1,5 +1,8 @@
 # Retrieval_Augmented_QA
 A Question-Answering API on a specific topic using RAG.
+<div align = 'center'> 
+	<img src ='https://github.com/mchockal/Retrieval_Augmented_QA/blob/main/data/Design_QA_With_RAG.png' alt="QA with RAG Design Diagram">
+</div>
 
 ##1. Usage
 
